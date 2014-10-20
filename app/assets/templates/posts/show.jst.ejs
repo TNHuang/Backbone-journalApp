@@ -1,5 +1,7 @@
-<%= post.escape("title")%>
+<p class="title"><%= post.escape("title")%></p>
 <br>
-<%= post.escape("body")%>
+<p class="body"><%= post.escape("body")%></p>
+<br>
+<a href="/#posts/<%= post.id%>/edit">Edit Post</a>
 <br>
 <a href="/#">back to index</a>

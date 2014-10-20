@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, ul, li, form, a {
+  font-family: inherit;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  margin-left: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  background: gray;
+}
+
+ul {
+  list-style: none;
+}
+
+.sidebar {
+  background: red;
+  color: white;
+  width: 200px;
+  padding: 20px;
+  float: left;
+  display: block;
+}
+
+.content {
+  padding: 20px;
+  float: left;
+  display: block;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

@@ -4,7 +4,8 @@ window.JournalApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new JournalApp.Routers.PostsRouter();
+    var posts = new JournalApp.Collections.Posts();
+    new JournalApp.Routers.PostsRouter({collection: posts});
     Backbone.history.start();
   }
 };

@@ -1,0 +1,16 @@
+<% var className = post.id ? "edit" : "new" %>
+<% var buttonName = post.id ? "Update Post" : "Create Post" %>
+
+<form data-id="<%= post.id%>" class="<%= className%>">
+<label>Title
+<input type="text" name="post[title]" value="<%= post.escape('title')%>">
+</input></label>
+<br>
+<label>Body
+<textarea name="post[body]"><%= post.escape('body')%></textarea>
+</label>
+<br>
+<input type="submit" class="<%= className%>" value="<%= buttonName %>">
+</form>
+<br>
+<a href="/#">Back to index</a>
