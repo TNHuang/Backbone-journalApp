@@ -7,6 +7,7 @@ JournalApp.Views.PostsShow = Backbone.View.extend({
     return this;
   },
 
+
   events: {
     "dblclick .title": "editTitle",
     "dblclick .body": "editBody",
@@ -16,22 +17,31 @@ JournalApp.Views.PostsShow = Backbone.View.extend({
 
   editTitle: function (events) {
     events.preventDefault();
-        console.log("enter title")
-    $('p.title').html("Title: <input type='text' class='title'>");
-
+    var cTemplate = _.template('<input type="text" value=<%=escape("title")%>>');
+    $(events.currentTarget).html(cTemplate(this.model));
   },
 
   editBody: function (events) {
     events.preventDefault();
-    console.log("enter body")
+    var cTemplate = _.template('<textarea><%=escape("body")%></textarea>');
+    $(events.currentTarget).html(cTemplate(this.model));
   },
 
   updateTitle: function (events) {
     events.preventDefault();
-    var formData = $('input.title').serializeJSON();
-    console.log($('input.title'));
-    this.model.save(formData, {patch: true});
-    console.log(this.model);
+    var value = $(events.currentTarget).find("input").val();
+
+    this.model.set("title", value);
+    this.model.save();
+    this.render();
+  },
+
+  updateBody: function (events) {
+    events.preventDefault();
+    var value = $(events.currentTarget).find("textarea").val();
+
+    this.model.set("body", value);
+    this.model.save();
     this.render();
   }
 
