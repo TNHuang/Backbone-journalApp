@@ -3,6 +3,7 @@ JournalApp.Views.PostsShow = Backbone.View.extend({
 
   render: function () {
     var content = this.template({post: this.model});
+    // $('div.sidebar').html(JST["posts/index"]({posts: this.collection}));
     this.$el.html(content);
     return this;
   },
@@ -17,13 +18,13 @@ JournalApp.Views.PostsShow = Backbone.View.extend({
 
   editTitle: function (events) {
     events.preventDefault();
-    var cTemplate = _.template('<input type="text" value=<%=escape("title")%>>');
+    var cTemplate = _.template('Title:<input type="text" value=<%=escape("title")%>>');
     $(events.currentTarget).html(cTemplate(this.model));
   },
 
   editBody: function (events) {
     events.preventDefault();
-    var cTemplate = _.template('<textarea><%=escape("body")%></textarea>');
+    var cTemplate = _.template('Body:<textarea><%=escape("body")%></textarea>');
     $(events.currentTarget).html(cTemplate(this.model));
   },
 
